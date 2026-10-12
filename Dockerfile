@@ -23,6 +23,8 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
+RUN php artisan storage:link
+
 RUN chown -R www-data:www-data storage bootstrap/cache
 
 EXPOSE 10000
