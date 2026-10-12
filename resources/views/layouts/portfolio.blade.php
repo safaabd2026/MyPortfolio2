@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Portfolio') — John Developer</title>
+    <title>@yield('title', 'Portfolio') — Safa Developer</title>
     <meta name="description" content="@yield('meta-description', 'Full Stack Laravel Developer — Portfolio')">
 
     <!-- Bootstrap 5 (RTL/LTR) -->
@@ -174,22 +174,31 @@
 
         /* Skills */
         #skills { background: var(--dark); }
-        #skills .section-badge { background: rgba(99,102,241,.15); color: #818cf8; }
+        #skills .section-badge { background: rgba(144, 189, 175, 0.15); color: #818cf8; }
         #skills .section-title { color: #fff; }
         .skill-bar-wrap { margin-bottom: 1.2rem; }
         .skill-bar-wrap .label { color: rgba(255,255,255,.8); font-size: .875rem; font-weight: 500; margin-bottom: .4rem; }
         .skill-bar-wrap .percentage { color: #818cf8; font-weight: 700; }
-        .progress-dark { background: rgba(255,255,255,.08); border-radius: 99px; height: 8px; }
-        .progress-dark .progress-bar { border-radius: 99px; background: linear-gradient(90deg, var(--primary), #818cf8); transition: width 1.5s ease; }
+        .progress-dark { background: rgba(255,255,255,.08); border-radius: 10px; height: 8px;display: block;width: 100%;overflow: hidden; }
+        .progress-dark .progress-bar { border-radius: 10px; background-color: #5854a1; display: block;height: 100%; }
 
         .skill-category-badge {
             display: inline-flex; align-items: center; gap: .4rem;
             padding: .4rem 1rem; border-radius: 99px;
             font-size: .82rem; font-weight: 600; cursor: pointer;
             border: 2px solid transparent; transition: all .2s;
+            background: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid #475569;
+        
         }
         .skill-category-badge.active,
-        .skill-category-badge:hover { border-color: var(--primary); color: #818cf8; }
+        .skill-category-badge:hover {
+            background: #312e81;
+            border-color: #818cf8; 
+            color: #ffffff; 
+            
+        }
 
         /* Timeline */
         .timeline { position: relative; }
@@ -265,7 +274,7 @@
 <nav class="navbar navbar-expand-lg fixed-top" style="background:rgba(15,23,42,.8);" id="mainNav">
     <div class="container">
         <a class="navbar-brand text-white" href="{{ route('home') }}">
-            <span style="color:var(--primary)">&lt;</span>JohnDev<span style="color:var(--primary)">/&gt;</span>
+            <span style="color:var(--primary)">&lt;</span>SafaDev<span style="color:var(--primary)">/&gt;</span>
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
             <span style="color:#fff;font-size:1.4rem;"><i class="bi bi-list"></i></span>
@@ -308,7 +317,7 @@
         <div class="row align-items-center">
             <div class="col-md-6 mb-3 mb-md-0">
                 <div class="fw-bold text-white mb-1">
-                    <span style="color:var(--primary)">&lt;</span>JohnDev<span style="color:var(--primary)">/&gt;</span>
+                    <span style="color:var(--primary)">&lt;</span>SafaDev<span style="color:var(--primary)">/&gt;</span>
                 </div>
                 <small>{{ __('portfolio.footer_role') }}</small>
             </div>

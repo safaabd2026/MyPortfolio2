@@ -10,22 +10,27 @@ use App\Models\Message;
 use App\Models\Project;
 use App\Models\Skill;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\support\facades\Mail;
 
 class PortfolioController extends Controller
 {
     public function index()
     {
-        $featuredProjects = Project::active()->orderBy('sort_order')->take(6)->get();
+        $featuredProjects = Project::active()->orderBy('sort_order')->take(3)->get();
         $skills = Skill::orderBy('category')->orderBy('sort_order')->get();
         $experiences = Experience::orderBy('start_date', 'desc')->get();
-        $certificates = Certificate::orderBy('issue_date', 'desc')->take(6)->get();
+        $certificates = Certificate::orderBy('issue_date', 'desc')->take(3)->get();
         $activeCv = Cv::where('is_active', true)->latest()->first();
 
         $skillsByCategory = $skills->groupBy('category');
 
         return view('portfolio.index', compact(
-            'featuredProjects', 'skills', 'skillsByCategory',
-            'experiences', 'certificates', 'activeCv'
+            'featuredProjects',
+            'skills',
+            'skillsByCategory',
+            'experiences',
+            'certificates',
+            'activeCv'
         ));
     }
 
@@ -47,7 +52,7 @@ class PortfolioController extends Controller
 
     public function sendMessage(ContactRequest $request)
     {
-        Message::create([
+        $message = Message::create([
             'name' => $request->name,
             'email' => $request->email,
             'subject' => $request->subject,
@@ -55,9 +60,26 @@ class PortfolioController extends Controller
             'ip_address' => $request->ip(),
         ]);
 
-        return back()->with('success', 'Your message has been sent successfully! I will get back to you soon.');
-    }
+        Mail::raw(
+            "Name: {$message->name}\n"
+                . "Email: {$message->email}\n"
+                . "Subject: " . ($message->subject ?? 'No subject') . "\n\n"
+                . "Message:\n{$message->message}",
+            function ($mail) use ($message) {
+                $mail->to(config('mail.from.address'))
+                    ->replyTo($message->email)
+                    ->subject(
+                        'Portfolio Contact: '
+                            . ($message->subject ?? 'New Message')
+                    );
+            }
+        );
 
+        return back()->with(
+            'success',
+            'Your message has been sent successfully!'
+        );
+    }
     public function downloadCv()
     {
         $cv = Cv::where('is_active', true)->latest()->first();
@@ -70,4 +92,10 @@ class PortfolioController extends Controller
 
         return Storage::disk('public')->download($cv->file_path, $cv->original_name);
     }
+    public function certificates()
+{
+    $certificates = Certificate::orderBy('issue_date', 'desc')->get();
+
+    return view('portfolio.certificates', compact('certificates'));
+}
 }

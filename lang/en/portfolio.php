@@ -13,7 +13,7 @@ return [
     // Hero
     'hero_available'   => 'Available for Hire',
     'hero_greeting'    => "Hi, I'm",
-    'hero_subtitle'    => 'I build scalable, high-performance web applications using <strong style="color:#818cf8;">Laravel</strong>, <strong style="color:#818cf8;">Vue.js</strong>, and modern web technologies. Passionate about clean code and great UX.',
+    'hero_subtitle'    => 'I develop web applications using <b> Laravel, PHP, React</b>, and modern web technologies. Passionate about clean code, problem-solving, and creating user-friendly digital experiences.',
     'hero_view_work'   => 'View My Work',
     'hero_get_touch'   => 'Get In Touch',
     'hero_projects'    => 'Projects',
@@ -23,13 +23,13 @@ return [
 
     // About
     'about_badge'      => 'About Me',
-    'about_title'      => 'Passionate Developer & Problem Solver',
-    'about_p1'         => "I'm a Full Stack Laravel Developer with 5+ years of experience building robust web applications. I specialize in PHP/Laravel for the backend and Vue.js/Bootstrap for the frontend.",
-    'about_p2'         => 'I\'m passionate about writing clean, maintainable code and following best practices. I enjoy solving complex problems and turning ideas into functional, beautiful products.',
-    'about_location'   => 'New York, USA',
-    'about_email'      => 'john@example.com',
-    'about_exp'        => '5+ Years Exp.',
-    'about_edu'        => 'CS Graduate',
+    'about_title'      => 'Passionate Software Engineer & Problem Solver',
+    'about_p1'         => "I'm a Software Engineering graduate with a strong interest in Full Stack Web Development and Artificial Intelligence. I have hands-on experience building web applications using Laravel, PHP, React, JavaScript, and MySQL.",
+    'about_p2'         => 'I\'m passionate about writing clean, maintainable code, solving technical challenges, and developing practical solutions that combine functionality with a great user experience. I\'m continuously learning and improving my skills to build reliable, scalable, and user-focused applications.',
+    'about_location'   => 'Taiz, Yemen',
+    'about_email'      => 'safaabd2026@gmail.com',
+    'about_exp'        => '0+ Years Exp.',
+    'about_edu'        => 'Software Engineering Graduate',
     'about_download_cv'=> 'Download CV',
 
     // Projects
@@ -79,7 +79,7 @@ return [
     'contact_intro'    => 'Whether you have a project, a question, or just want to say hi — feel free to reach out!',
     'contact_email'    => 'Email',
     'contact_location' => 'Location',
-    'contact_location_val' => 'New York, USA',
+    'contact_location_val' => 'Taiz, Yemen',
     'contact_response' => 'Response Time',
     'contact_response_val' => 'Within 24 hours',
     'contact_follow'   => 'Follow Me',
@@ -100,5 +100,5 @@ return [
     'footer_contact'   => 'Contact',
     'footer_admin'     => 'Admin',
     'footer_login'     => 'Login',
-    'footer_copy'      => '© :year John Developer. Built with Laravel 11.',
+    'footer_copy'      => '© :year Safa Developer. Built with Laravel 11.',
 ];

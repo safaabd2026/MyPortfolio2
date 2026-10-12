@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\CvController;
 use Illuminate\Support\Facades\Route;
 
+
 // ===========================
 // LANGUAGE SWITCH
 // ===========================
@@ -28,6 +29,8 @@ Route::get('/lang/{locale}', function (string $locale) {
 // ===========================
 Route::get('/', [PortfolioController::class, 'index'])->name('home');
 Route::get('/projects', [PortfolioController::class, 'projects'])->name('projects');
+ Route::get('/certificates', [PortfolioController::class, 'certificates'])
+    ->name('certificates');
 Route::get('/projects/{project}', [PortfolioController::class, 'project'])->name('project.show');
 Route::get('/contact', [PortfolioController::class, 'contact'])->name('contact');
 Route::post('/contact', [PortfolioController::class, 'sendMessage'])->name('contact.send');
